@@ -1,0 +1,133 @@
+// santa
+mixin santa
+  .santa__hat
+    .santa__hat-part
+    .santa__hat-part
+  .santa__face
+    .santa__eyebrows.santa__eyebrows--right
+    .santa__eyebrows.santa__eyebrows--left
+    .santa__eye.santa__eye--right
+    .santa__eye.santa__eye--left
+    .santa__nose
+    .santa__cheek.santa__cheek--right
+    .santa__cheek.santa__cheek--left
+    .santa__beard
+      - for (var x = 0; x < 3; x++)
+        .santa__beard-part
+    .santa__mouth
+  .santa__body
+    .santa__body-top
+    .santa__hand.santa__hand--left
+      .santa__hand-inner
+    .santa__hand.santa__hand--right
+    .santa__body-bottom
+      .santa__foot.santa__foot--left
+        .santa__foot-inner
+      .santa__foot.santa__foot--right
+        .santa__foot-inner
+
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet", href="/css/christmas.css")
+    title クリスマス404
+  body
+    .text-box
+      .status-code
+        p 4
+        .zero
+          .zero__top
+            .zero__top-inner
+          .zero__bottom
+            .zero__bottom-inner
+          .sori-santa
+            .santa.santa--sori
+              +santa
+            .lead
+              .lead-inner
+            .lead.lead--back
+              .lead-inner
+            .sori
+            .reindeer
+              .reindeer__face
+                .reindeer__ear
+                .reindeer__horn.reindeer__horn--right
+                .reindeer__horn.reindeer__horn--left
+              .reindeer__body
+                .reindeer__foot.reindeer__foot--front
+                  .reindeer__foot-inner
+                .reindeer__foot.reindeer__foot--back
+                  .reindeer__foot-inner
+                .reindeer__tail
+        p 4
+      .text
+        p.text__error page not found.
+        p.text__error
+          - var text = ["M", "e", "r", "r", "y", "C", "h", "r", "i", "s", "t", "m", "a", "s"]
+          each item in text
+            span= item
+        p.text__error Santa Claus works hard!
+
+    .house.house--first-floor
+      .santa.santa--chimney
+        +santa
+      .lease
+        .lease__ribbon
+        .lease__decoration
+          .lease__decoration-part
+          .lease__decoration-part
+          .lease__decoration-part
+      .house__chimney
+        .snow
+      .house__bottom
+        .house__roof.house__roof--triangle
+          .snow
+        input.input-toggle#toggle(type="checkbox")
+        label.house-toggle(for="toggle")
+          span.house__window
+            span.cat
+              span.cat__face
+              span.cat__body
+            span.present
+              span.present__ribbon
+        .house__door
+
+    .house.house--second-floor
+      .snowman
+        .hukidashi.hukidashi--speak
+          p Click on the window
+        .snowman__body
+          .snowman__hat
+          .snowman__face
+          .snowman__hand.snowman__hand--right
+          .snowman__hand.snowman__hand--left
+          .snowman__scarf
+
+      .house__chimney
+        .snow
+      .house__bottom
+        .house__roof.house__roof--trapezoid
+          .snow
+        input.input-toggle#toggle2(type="checkbox")
+        label.house-toggle(for="toggle2")
+          span.house__window
+            span.tree
+              span.tree__body
+              span.tree__decorations
+                - for(var i = 0; i < 6 ;i++ )
+                  span.tree__decoration
+        .house__door
+
+      .house__top
+        .house__roof.house__roof--triangle
+          .snow
+        input.input-toggle#toggle3(type="checkbox")
+        label.house-toggle(for="toggle3")
+          span.house__window
+    .santa.santa--walk
+      .hukidashi.hukidashi--speak
+        p Where?
+      .sweat
+      .sweat
+      +santa
